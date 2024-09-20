@@ -1,0 +1,273 @@
+[gd_scene load_steps=4 format=3 uid="uid://bopar5hih8oqc"]
+
+[ext_resource type="Script" path="res://example/Gift.gd" id="1_twyyb"]
+[ext_resource type="Texture2D" uid="uid://by0at4vhesybh" path="res://icon.svg" id="1_vyi63"]
+[ext_resource type="Script" path="res://gallery/Previews.gd" id="2_pdyyc"]
+
+[node name="Node" type="Node"]
+
+[node name="Gift" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_twyyb")
+scopes = Array[String](["chat:edit", "chat:read", "moderator:read:followers"])
+disk_cache = true
+
+[node name="Node" type="Node" parent="."]
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Node"]
+offset_top = 462.0
+offset_right = 1920.0
+offset_bottom = 1542.0
+scale = Vector2(0.57, 0.57)
+border_width = 3.0
+
+[node name="Label2" type="Label" parent="Node/ReferenceRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 200
+text = "Ads/shoutouts/
+clips/credit roll"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="Node"]
+offset_right = 1094.0
+offset_bottom = 436.0
+border_width = 3.0
+
+[node name="Label" type="Label" parent="Node/ReferenceRect2"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 300
+text = "Timer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="Node"]
+offset_left = 1115.0
+offset_right = 1920.0
+offset_bottom = 1078.0
+border_width = 3.0
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="Node"]
+offset_left = 1142.0
+offset_top = 25.0
+offset_right = 1894.0
+offset_bottom = 730.0
+border_width = 3.0
+
+[node name="ReferenceRect5" type="ReferenceRect" parent="Node"]
+offset_left = 1142.0
+offset_top = 753.0
+offset_right = 1894.0
+offset_bottom = 1058.0
+border_width = 3.0
+
+[node name="Gallery" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.581
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.519897
+offset_right = 0.00012207
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Gallery"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 10
+
+[node name="BoxContainer" type="BoxContainer" parent="Gallery/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+vertical = true
+
+[node name="BigViewer" type="TextureRect" parent="Gallery/MarginContainer/BoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_vyi63")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="Gallery/MarginContainer/BoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="ProgressBar" type="ProgressBar" parent="Gallery/MarginContainer/BoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+step = 1.0
+fill_mode = 1
+show_percentage = false
+
+[node name="Previews" type="BoxContainer" parent="Gallery/MarginContainer/BoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+script = ExtResource("2_pdyyc")
+
+[node name="TextureRect" type="TextureRect" parent="Gallery/MarginContainer/BoxContainer/Previews"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 300)
+layout_mode = 2
+texture = ExtResource("1_vyi63")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Vote1" type="HFlowContainer" parent="Gallery/MarginContainer/BoxContainer/Previews/TextureRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Add" type="Button" parent="Gallery/MarginContainer/BoxContainer/Previews/TextureRect"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 38.0
+offset_right = 44.0
+offset_bottom = 69.0
+text = "+"
+
+[node name="Subtract" type="Button" parent="Gallery/MarginContainer/BoxContainer/Previews/TextureRect"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 38.0
+offset_right = 66.0
+offset_bottom = 69.0
+text = "-"
+
+[node name="TextureRect2" type="TextureRect" parent="Gallery/MarginContainer/BoxContainer/Previews"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 300)
+layout_mode = 2
+texture = ExtResource("1_vyi63")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Vote2" type="HFlowContainer" parent="Gallery/MarginContainer/BoxContainer/Previews/TextureRect2"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Add2" type="Button" parent="Gallery/MarginContainer/BoxContainer/Previews/TextureRect2"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 38.0
+offset_right = 37.0
+offset_bottom = 69.0
+text = "+"
+
+[node name="Subtract2" type="Button" parent="Gallery/MarginContainer/BoxContainer/Previews/TextureRect2"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 38.0
+offset_right = 59.0
+offset_bottom = 69.0
+text = "-"
+
+[node name="TextureRect3" type="TextureRect" parent="Gallery/MarginContainer/BoxContainer/Previews"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 300)
+layout_mode = 2
+texture = ExtResource("1_vyi63")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Vote3" type="HFlowContainer" parent="Gallery/MarginContainer/BoxContainer/Previews/TextureRect3"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Add3" type="Button" parent="Gallery/MarginContainer/BoxContainer/Previews/TextureRect3"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 38.0
+offset_right = 45.0
+offset_bottom = 69.0
+text = "+"
+
+[node name="Subtract3" type="Button" parent="Gallery/MarginContainer/BoxContainer/Previews/TextureRect3"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 38.0
+offset_right = 67.0
+offset_bottom = 69.0
+text = "-"
+
+[node name="ArtTimer" type="Timer" parent="Gallery"]
+unique_name_in_owner = true
+wait_time = 90.0
+autostart = true
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+offset_left = 1787.0
+offset_top = 1018.0
+offset_right = 1837.0
+offset_bottom = 1068.0
+texture = ExtResource("1_vyi63")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="."]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 0.566
+anchor_top = 0.675
+anchor_right = 0.606
+anchor_bottom = 0.746
+offset_left = -89.7201
+offset_top = 216.0
+offset_right = -89.52
+offset_bottom = 216.32
+theme_override_font_sizes/font_size = 50
+text = "🔀"
+
+[connection signal="pressed" from="Gallery/MarginContainer/BoxContainer/Previews/TextureRect/Add" to="Gallery/MarginContainer/BoxContainer/Previews" method="_on_add_pressed"]
+[connection signal="pressed" from="Gallery/MarginContainer/BoxContainer/Previews/TextureRect/Subtract" to="Gallery/MarginContainer/BoxContainer/Previews" method="_on_subtract_pressed"]
+[connection signal="pressed" from="Gallery/MarginContainer/BoxContainer/Previews/TextureRect2/Add2" to="Gallery/MarginContainer/BoxContainer/Previews" method="_on_add2_pressed"]
+[connection signal="pressed" from="Gallery/MarginContainer/BoxContainer/Previews/TextureRect2/Subtract2" to="Gallery/MarginContainer/BoxContainer/Previews" method="_on_subtract2_pressed"]
+[connection signal="pressed" from="Gallery/MarginContainer/BoxContainer/Previews/TextureRect3/Add3" to="Gallery/MarginContainer/BoxContainer/Previews" method="_on_add3_pressed"]
+[connection signal="pressed" from="Gallery/MarginContainer/BoxContainer/Previews/TextureRect3/Subtract3" to="Gallery/MarginContainer/BoxContainer/Previews" method="_on_subtract3_pressed"]
+[connection signal="timeout" from="Gallery/ArtTimer" to="Gallery/MarginContainer/BoxContainer/Previews" method="_on_art_timer_timeout"]
+[connection signal="pressed" from="Button" to="Gallery/MarginContainer/BoxContainer/Previews" method="_on_button_pressed"]

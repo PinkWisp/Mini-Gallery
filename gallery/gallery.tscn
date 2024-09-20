@@ -1,0 +1,260 @@
+[gd_scene load_steps=6 format=3 uid="uid://bopar5hih8oqc"]
+
+[ext_resource type="Texture2D" uid="uid://by0at4vhesybh" path="res://icon.svg" id="1_vyi63"]
+[ext_resource type="Script" path="res://gallery/Previews.gd" id="2_pdyyc"]
+[ext_resource type="Texture2D" uid="uid://chyp5ftg2iui2" path="res://gallery/placeholder.png" id="3_f1ibv"]
+[ext_resource type="Script" path="res://gallery/GallyerControls.gd" id="4_fs843"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5htw5"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_color = Color(0.147672, 0.147672, 0.147672, 1)
+
+[node name="Node" type="Node"]
+
+[node name="Gallery" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Gallery"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+
+[node name="BoxContainer" type="BoxContainer" parent="Gallery/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+vertical = true
+
+[node name="BigViewer" type="TextureRect" parent="Gallery/MarginContainer/BoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_f1ibv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="Gallery/MarginContainer/BoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="ProgressBar" type="ProgressBar" parent="Gallery/MarginContainer/BoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_5htw5")
+step = 1.0
+fill_mode = 1
+show_percentage = false
+
+[node name="MarginContainer2" type="MarginContainer" parent="Gallery/MarginContainer/BoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="Previews" type="BoxContainer" parent="Gallery/MarginContainer/BoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+script = ExtResource("2_pdyyc")
+
+[node name="TextureRect" type="TextureRect" parent="Gallery/MarginContainer/BoxContainer/Previews"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 300)
+layout_mode = 2
+texture = ExtResource("1_vyi63")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Vote1" type="HFlowContainer" parent="Gallery/MarginContainer/BoxContainer/Previews/TextureRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Gallery/MarginContainer/BoxContainer/Previews"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 300)
+layout_mode = 2
+texture = ExtResource("1_vyi63")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Vote2" type="HFlowContainer" parent="Gallery/MarginContainer/BoxContainer/Previews/TextureRect2"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Gallery/MarginContainer/BoxContainer/Previews"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 300)
+layout_mode = 2
+texture = ExtResource("1_vyi63")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Vote3" type="HFlowContainer" parent="Gallery/MarginContainer/BoxContainer/Previews/TextureRect3"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="GallyerControls" type="BoxContainer" parent="Gallery"]
+layout_mode = 1
+offset_right = 30.0
+offset_bottom = 183.0
+vertical = true
+script = ExtResource("4_fs843")
+
+[node name="VisibleButton" type="Button" parent="Gallery/GallyerControls"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+
+[node name="PlayPauseButton" type="Button" parent="Gallery/GallyerControls"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Play/Pause auto display."
+mouse_filter = 1
+toggle_mode = true
+text = "⏸"
+
+[node name="AutoAllButton" type="Button" parent="Gallery/GallyerControls"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Scrolls through all previews.
+
+Randomly chooses one of the previews if off. 
+Set up gift plugin to let chat vote for their favorites."
+mouse_filter = 1
+toggle_mode = true
+text = "⏳︎"
+
+[node name="FolderButton" type="Button" parent="Gallery/GallyerControls"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+text = "🗁"
+
+[node name="CreditsButton" type="Button" parent="Gallery/GallyerControls"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "MiniGallery by PinkWisp."
+mouse_filter = 1
+text = "👻"
+
+[node name="FileDialog" type="FileDialog" parent="Gallery/GallyerControls"]
+unique_name_in_owner = true
+title = "Open a Directory"
+size = Vector2i(454, 175)
+ok_button_text = "Select Current Folder"
+file_mode = 2
+access = 2
+use_native_dialog = true
+
+[node name="AuthButton" type="Button" parent="Gallery/GallyerControls"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Allows twitch chat to vote for their favs.
+
+GIFT plugin by issork"
+mouse_filter = 1
+text = "🔒"
+
+[node name="Timer" type="Timer" parent="Gallery/GallyerControls"]
+wait_time = 3.0
+one_shot = true
+
+[node name="Window" type="Window" parent="Gallery"]
+unique_name_in_owner = true
+title = "Make sure you are not streaming this window"
+initial_position = 1
+size = Vector2i(500, 260)
+visible = false
+
+[node name="BoxContainer" type="BoxContainer" parent="Gallery/Window"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+vertical = true
+
+[node name="TextEdit" type="TextEdit" parent="Gallery/Window/BoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "<client_id>
+<client_secret>
+<initial channel>
+
+#GIFT plugin by issork. https://github.com/issork/gift
+#Get your client id and secret at https://dev.twitch.tv/.
+#You will need to register an application.
+#for OAuth Redirect use: http://localhost:18297"
+
+[node name="CensorButton" type="Button" parent="Gallery/Window/BoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Click to show
+Client ID and Secret."
+
+[node name="Button" type="Button" parent="Gallery/Window/BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "save"
+
+[node name="ArtTimer" type="Timer" parent="Gallery"]
+unique_name_in_owner = true
+wait_time = 90.0
+autostart = true
+
+[connection signal="auto_art1" from="Gallery/GallyerControls" to="Gallery/MarginContainer/BoxContainer/Previews" method="_on_gallyer_controls_auto_art_1"]
+[connection signal="auto_art2" from="Gallery/GallyerControls" to="Gallery/MarginContainer/BoxContainer/Previews" method="_on_gallyer_controls_auto_art_2"]
+[connection signal="auto_art3" from="Gallery/GallyerControls" to="Gallery/MarginContainer/BoxContainer/Previews" method="_on_gallyer_controls_auto_art_3"]
+[connection signal="mouse_entered" from="Gallery/GallyerControls" to="Gallery/GallyerControls" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Gallery/GallyerControls" to="Gallery/GallyerControls" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Gallery/GallyerControls/VisibleButton" to="Gallery/GallyerControls" method="_on_visible_button_mouse_entered"]
+[connection signal="pressed" from="Gallery/GallyerControls/VisibleButton" to="Gallery/GallyerControls" method="_on_visible_button_pressed"]
+[connection signal="pressed" from="Gallery/GallyerControls/PlayPauseButton" to="Gallery/GallyerControls" method="_on_play_pause_button_pressed"]
+[connection signal="toggled" from="Gallery/GallyerControls/PlayPauseButton" to="Gallery/GallyerControls" method="_on_play_pause_button_toggled"]
+[connection signal="toggled" from="Gallery/GallyerControls/AutoAllButton" to="Gallery/GallyerControls" method="_on_auto_all_button_toggled"]
+[connection signal="mouse_entered" from="Gallery/GallyerControls/FolderButton" to="Gallery/GallyerControls" method="_on_folder_button_mouse_entered"]
+[connection signal="pressed" from="Gallery/GallyerControls/FolderButton" to="Gallery/GallyerControls" method="_on_folder_button_pressed"]
+[connection signal="pressed" from="Gallery/GallyerControls/CreditsButton" to="Gallery/GallyerControls" method="_on_credits_button_pressed"]
+[connection signal="dir_selected" from="Gallery/GallyerControls/FileDialog" to="Gallery/MarginContainer/BoxContainer/Previews" method="_on_file_dialog_dir_selected"]
+[connection signal="pressed" from="Gallery/GallyerControls/AuthButton" to="Gallery/GallyerControls" method="_on_auth_button_pressed"]
+[connection signal="timeout" from="Gallery/GallyerControls/Timer" to="Gallery/GallyerControls" method="_on_timer_timeout"]
+[connection signal="close_requested" from="Gallery/Window" to="Gallery/GallyerControls" method="_on_window_close_requested"]
+[connection signal="pressed" from="Gallery/Window/BoxContainer/CensorButton" to="Gallery/GallyerControls" method="_on_censor_button_pressed"]
+[connection signal="pressed" from="Gallery/Window/BoxContainer/Button" to="Gallery/GallyerControls" method="_on_button_pressed"]
+[connection signal="timeout" from="Gallery/ArtTimer" to="Gallery/MarginContainer/BoxContainer/Previews" method="_on_art_timer_timeout"]
